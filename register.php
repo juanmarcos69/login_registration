@@ -1,41 +1,82 @@
 <?php 
-$page_title = "Login Form";
+session_start();
+ini_set('display_errors', 1);
+ini_set('display_startup_errors', 1);
+error_reporting(E_ALL);
+
+$page_title = "Registration Form";
 include('includes/header.php');
 include('includes/navbar.php');
+
 ?>
 
-<div class="py-3">
+
+<div class="py-5 bg-light"> 
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6">
-                <div class="card shadow">
-                    <div class="card-header">
-                        <h5>Login Form</h5>
+                
+            <?php include('includes/alert.php'); ?>
+
+                <div class="card shadow-lg">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0">Registration Form</h5> 
                     </div>
                     <div class="card-body">
                         <form action="code.php" method="POST">
-                            <div class="form-group mb-3"> 
-                                <label for="name">Name</label>
-                                <input type="text" id="name" name="name" class="form-control">
+                            <!-- Name -->
+                            <div class="form-group mb-3 position-relative"> 
+                                <label for="name">Full Name</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                    <input type="text" id="name" name="name" class="form-control" placeholder="Enter your name" required>
+                                </div>
                             </div>
-                            <div class="form-group mb-3"> 
-                                <label for="phone">phone Number</label>
-                                <input type="text" id="phone" name="phone" class="form-contrrol"> 
+                            
+                            <!-- Phone Number -->
+                            <div class="form-group mb-3 position-relative"> 
+                                <label for="phone">Phone Number</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fas fa-phone-alt"></i></span>
+                                    <input type="text" id="phone" name="phone" class="form-control" placeholder="Enter your phone number" pattern="[0-9]{10}" title="Enter a valid 10-digit phone number" required>
+                                </div>
                             </div>
-                            <div class="form-group mb-3">
+                            
+                            <!-- Email Address -->
+                            <div class="form-group mb-3 position-relative"> 
                                 <label for="email">Email Address</label>
-                                <input type="email" id="email" name="email" class="form-control">
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                    <input type="email" id="email" name="email" class="form-control" placeholder="Enter your email" required>
+                                </div>
                             </div>
-                            <div class="form-group mb-3">
+                            
+                            <!-- Password -->
+                            <div class="form-group mb-3 position-relative"> 
                                 <label for="password">Password</label>
-                                <input type="password" id="password" name="password" class="form-control">
-                            </div>  
-                            <div class="form-group mb-3">
-                                <label for="confirm_password">Confirm_Password</label>
-                                <input type="password" id="confirm_password" name="confirm_password" class="form-control">
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                                    <input type="password" id="password" name="password" class="form-control" placeholder="Enter your password" minlength="6" required>
+                                </div>
                             </div>
-                            <div class="form-group mb-3">
-                                <button type="submit" name=""
+                            
+                            <!-- Confirm Password -->
+                            <div class="form-group mb-3 position-relative"> 
+                                <label for="confirm_password">Confirm Password</label>
+                                <div class="input-group">
+                                    <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                                    <input type="password" id="confirm_password" name="confirm_password" class="form-control" placeholder="Confirm your password" minlength="6" required>
+                                </div>
+                            </div>
+                            
+                            <!-- Submit Button -->
+                            <div class="form-group text-center">
+                                <button type="submit" name="register_btn" class="btn btn-primary w-100">Register</button> 
+                            </div>
+
+                            <div class="form-group text-center mt-3">
+                                <p>Already have an account? <a href="login.php">Login</a></p>
+                            </div>
                         </form>
                     </div>
                 </div>
@@ -43,5 +84,6 @@ include('includes/navbar.php');
         </div>
     </div>
 </div>
+
 
 <?php include('includes/footer.php'); ?>
