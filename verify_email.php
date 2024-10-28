@@ -4,7 +4,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-include('db_con.php'); // Include your database connection file
+include('db.php'); // Include your database connection file
 
 if(isset($_GET['token'])) {
     $token = $_GET['token'];

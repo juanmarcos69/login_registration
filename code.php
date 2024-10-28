@@ -15,7 +15,7 @@ $mail = new PHPMailer(true);
 
 
     //Server settings
-    //$mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
+    $mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
     $mail->isSMTP();                                            //Send using SMTP
     $mail->Host       = 'smtp.gmail.com';                     //Set the SMTP server to send through
     $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
@@ -39,13 +39,15 @@ $mail = new PHPMailer(true);
 
     $mail->Body    = $email_template;
     $mail->AltBody = 'Verify your email address to complete the registration.';
-   
+    
     try {
-    $mail->send();
-    echo 'Message has been sent';
-} catch (Exception $e) {
-    echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
-}
+        // [SMTP Configuration Code]
+        $mail->send();
+        return true; // Return true if email is sent
+    } catch (Exception $e) {
+        error_log("Mailer Error: {$mail->ErrorInfo}"); // Log the error
+        return false; // Return false if email is not sent
+    }
 }
 if (isset($_POST['register_btn'])) {
     $name = $_POST['name'];

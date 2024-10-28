@@ -1,25 +1,23 @@
 <?php
-session_start();
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 ?>
-
+<?php session_start(); ?>
 <?php
 $page_title = "Login Form";
 include('includes/header.php');
 include('includes/navbar.php');
 ?>
-
 <div class="py-5 bg-light"> 
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6">
               
-                <?php include('includes/alert.php'); ?>
+                <?php include('includes/alert_login.php'); ?>
   
                 <div class="card shadow-lg">
-                    <div class="card-header bg-primary text-white">
+                    <div class="card-header bg-dark-green text-white"> <!-- Changed bg-primary to bg-dark-green -->
                         <h5 class="mb-0">Login Form</h5> 
                     </div>
                     <div class="card-body">
@@ -45,9 +43,8 @@ include('includes/navbar.php');
                             
                             <!-- Submit Button -->
                             <div class="form-group text-center">
-                                <button type="submit" name="login_btn" class="btn btn-primary w-100">Login</button>
+                                <button type="submit" name="login_btn" class="btn btn-dark-green w-100">Login</button> <!-- Changed btn-primary to btn-dark-green -->
                             </div>
-
 
                             <div class="form-group text-center mt-3">
                                 <p>Don't have an account yet? <a href="register.php">Sign Up</a></p>
@@ -59,5 +56,20 @@ include('includes/navbar.php');
         </div>
     </div>
 </div>
+
+<style>
+    .bg-dark-green {
+        background-color: #004d00; /* Dark green background color */
+    }
+
+    .btn-dark-green {
+        background-color: #006600; /* Dark green button color */
+        color: #fff;
+    }
+    .btn-dark-green:hover {
+        background-color: #004d00; /* Slightly darker green for hover effect */
+    }
+</style>
+
 
 <?php include('includes/footer.php'); ?>

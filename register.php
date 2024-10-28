@@ -10,16 +10,15 @@ include('includes/navbar.php');
 
 ?>
 
-
 <div class="py-5 bg-light"> 
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-6">
-                
-            <?php include('includes/alert.php'); ?>
+
+                <?php include('includes/alert.php'); ?>
 
                 <div class="card shadow-lg">
-                    <div class="card-header bg-primary text-white">
+                    <div class="card-header bg-dark-green text-white"> <!-- Changed bg-primary to bg-dark-green -->
                         <h5 class="mb-0">Registration Form</h5> 
                     </div>
                     <div class="card-body">
@@ -71,7 +70,7 @@ include('includes/navbar.php');
                             
                             <!-- Submit Button -->
                             <div class="form-group text-center">
-                                <button type="submit" name="register_btn" class="btn btn-primary w-100">Register</button> 
+                                <button type="submit" name="register_btn" class="btn btn-dark-green w-100">Register</button> <!-- Changed btn-primary to btn-dark-green -->
                             </div>
 
                             <div class="form-group text-center mt-3">
@@ -84,6 +83,20 @@ include('includes/navbar.php');
         </div>
     </div>
 </div>
+
+<style>
+    .bg-dark-green {
+        background-color: #004d00; /* Dark green background color */
+    }
+
+    .btn-dark-green {
+        background-color: #006600; /* Dark green button color */
+        color: #fff;
+    }
+    .btn-dark-green:hover {
+        background-color: #004d00; /* Slightly darker green for hover effect */
+    }
+</style>
 
 
 <?php include('includes/footer.php'); ?>
